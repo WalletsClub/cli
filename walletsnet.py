@@ -132,6 +132,10 @@ class CommandLine(object):
         if not os.path.exists(conf):
             raise SystemExit((colored('Missing configure file: {0}'.format(conf), color='red')))
 
+    def version(self):
+        """ version """
+        print('0.1.0')
+
     def listen(self, host='0.0.0.0', port=12222, forward_to=None, log_level='DEBUG'):
         """  Communicate with WalletsNet on your local machine, do not use it in production deployment """
 
@@ -244,7 +248,7 @@ class CommandLine(object):
         elif topic == 'doc':
             webbrowser.open('https://walletsclub.com/Documentation', new=2)
         else:
-            pass
+            webbrowser.open('http://www.walletsclub.com', new=2)
 
     def status(self):
         """ Return WalletsNet system status and service availability. """
@@ -278,5 +282,5 @@ class CommandLine(object):
             pass
 
 
-if __name__ == '__main__':
+def cli():
     fire.Fire(CommandLine)
