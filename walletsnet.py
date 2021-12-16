@@ -1,4 +1,3 @@
-#!/Users/zhixiang.xue/.virtualenvs/transceiver/bin/python
 # -*- coding:utf-8 -*-
 
 import os
