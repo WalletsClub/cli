@@ -94,7 +94,7 @@ def index():
 
 @app.route('/inbox', methods=['POST'])
 def inbox():
-    """ Receive message from WalltesNet """
+    """ Receive message from WalletsNet """
     try:
         request_body = request.get_data()
 
@@ -114,7 +114,7 @@ def inbox():
 
 @app.route('/outbox', methods=['POST'])
 def outbox():
-    """ Send message to WalltesNet """
+    """ Send message to WalletsNet """
     try:
         request_body = request.get_data()
 
@@ -168,14 +168,14 @@ class CommandLine(object):
             print('List of available samples:\n')
 
             print('1. Credit transfer')
-            print('Command: walltesnet trigger --example="credit transfer"')
+            print('Command: walletsnet trigger --example="credit transfer"')
             print('Blog: Learn how to make a credit transfer instruction')
             print(emoji.emojize(":backhand_index_pointing_right: ") + 'https://blog.walletsclub.com/credit_transfer')
 
             print('\n')
 
             print('2. Request to Pay')
-            print('Command: walltesnet trigger --example="request to pay"')
+            print('Command: walletsnet trigger --example="request to pay"')
             print('Blog: Learn how to make a request to pay instruction')
             print(emoji.emojize(":backhand_index_pointing_right: ") + 'https://blog.walletsclub.com/request_to_pay')
 
