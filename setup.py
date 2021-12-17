@@ -2,6 +2,7 @@ from setuptools import setup
 
 setup(
     name='cli',
+    python_requires='>3.8',
     version='0.1.0',
     packages=['messages'],
     url='www.walletsclub.com',

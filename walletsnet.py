@@ -5,6 +5,7 @@ import json
 import time
 import datetime
 import logging
+from ipaddress import ip_address
 
 import requests
 import emoji
@@ -138,6 +139,9 @@ class CommandLine(object):
 
     def listen(self, host='0.0.0.0', port=12222, forward_to=None, log_level='DEBUG'):
         """  Communicate with WalletsNet on your local machine, do not use it in production deployment """
+
+        if ip_address(host).is_private:
+            raise SystemExit((colored('Public IP address expected: {0}'.format(host), color='red')))
 
         f = Figlet(font="banner3-d", width=1000)
         log.info('\n\n' + colored(f.renderText('WalletsNet.'), color='white') +
