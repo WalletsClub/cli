@@ -179,7 +179,7 @@ def bake(debtor_pid, net_pid, creditor_pid, ccy='HKD'):
     doc_msg_id = make_instruction_identification(debtor_pid)
     doc_e2e_msg_id = make_e2e_identification(debtor_pid)
     # random 1 ~ 100 amount
-    money = Money(round(random.uniform(1, 100), 2), ccy)
+    money = Money(round(random.uniform(1, 10), 2), ccy)
 
     fake = Faker()
 

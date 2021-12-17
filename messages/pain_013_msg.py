@@ -101,7 +101,7 @@ def template():
                                     "InstdAmt": "${Doc_InstdAmt}",
                                     "Ccy": "${Doc_Ccy}"
                                 },
-                                "ChrgBr": "DEBT",
+                                "ChrgBr": "SLEV",
                                 "CdtrAgt": {
                                     "FinInstnId": {
                                         "ClrSysMmbId": {

@@ -5,7 +5,6 @@ import json
 import time
 import datetime
 import logging
-from ipaddress import ip_address
 
 import requests
 import emoji
@@ -20,7 +19,7 @@ from rfc3339 import rfc3339
 from jws import deserialize_compact
 from participant import get
 from const import conf, log
-from util import s, f, w
+from util import s, f, w, j
 from participant import dummy
 from sender import Sender
 
@@ -83,27 +82,17 @@ def log_request(response):
 
 
 @app.route('/', methods=['POST'])
-def index():
-    try:
-        return jsonify(message="I am working :)")
-    except Exception as e:
-        log.critical('Oops! Exception occurred.')
-        import traceback
-        log.critical(traceback.format_exc())
-        return jsonify(resultCode="F")
-
-
-@app.route('/inbox', methods=['POST'])
 def inbox():
     """ Receive message from WalletsNet """
     try:
         request_body = request.get_data()
 
         walletsnet = get(conf, 'NET')
-        received_message = json.loads(deserialize_compact(request_body, walletsnet.public_key).payload)
+        raw_message = deserialize_compact(request_body, walletsnet.public_key).payload
+        message = json.loads(raw_message)
 
         if os.environ.get('forward_to') is not None:
-            requests.post(os.environ.get('forward_to'), data=received_message)
+            requests.post(os.environ.get('forward_to'), data=raw_message, verify=False)
 
         return jsonify(resultCode="T")
     except Exception as e:
@@ -117,7 +106,11 @@ def inbox():
 def outbox():
     """ Send message to WalletsNet """
     try:
-        request_body = request.get_data()
+        raw_message = request.get_data()
+
+        me = get(conf, 'ME')
+        sender = Sender(me)
+        response = sender.post(json.loads(raw_message))
 
         return jsonify(resultCode="T")
     except Exception as e:
@@ -139,9 +132,6 @@ class CommandLine(object):
 
     def listen(self, host='0.0.0.0', port=12222, forward_to=None, log_level='DEBUG'):
         """  Communicate with WalletsNet on your local machine, do not use it in production deployment """
-
-        if ip_address(host).is_private:
-            raise SystemExit((colored('Public IP address expected: {0}'.format(host), color='red')))
 
         f = Figlet(font="banner3-d", width=1000)
         log.info('\n\n' + colored(f.renderText('WalletsNet.'), color='white') +
