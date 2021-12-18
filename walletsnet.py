@@ -144,7 +144,7 @@ class CommandLine(object):
         if log_level:
             app.logger.setLevel(logging.getLevelName(log_level))
 
-        app.run(host=host, port=port, use_reloader=True, debug=True, ssl_context='adhoc')
+        app.run(host=host, port=port, use_reloader=False, debug=True, ssl_context='adhoc')
 
     def check(self):
         """ Check if everything ok """
