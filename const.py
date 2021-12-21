@@ -5,7 +5,7 @@ import logging
 from logging import handlers
 
 conf = './setting.json'
-dummy_cp_pid = 'ZRMTHKHHXXX'  # todo 改成统一模拟对手方
+dummy_cp_pid = 'EMTRHKDDXXX'
 
 log = logging.getLogger()
 log.setLevel(logging.DEBUG)

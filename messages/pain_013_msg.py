@@ -144,7 +144,7 @@ def build(**kwargs):
     return json.loads(content)
 
 
-def bake(creditor_pid, net_pid, debtor_pid, ccy='HKD'):
+def bake(creditor_pid, net_pid, debtor_pid, ccy='USD'):
     """ Bake a pain.013 message """
 
     hdr_biz_msg_id = make_biz_message_identification(debtor_pid)
