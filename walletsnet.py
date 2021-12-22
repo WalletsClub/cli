@@ -146,16 +146,6 @@ class CommandLine(object):
 
         app.run(host=host, port=port, use_reloader=False, debug=True, ssl_context='adhoc')
 
-    def check(self):
-        """ Check if everything ok """
-        # todo 在portal上加个api支持这个功能
-        print('Result of checklist:\n')
-        print(s('Participant ID'))
-        print(s('Webhook'))
-        print(w('Public key'))
-        print(f('Connection'))
-        print('\n')
-
     def examples(self, action='list'):
         """ A list of available samples that can be created and bootstrapped by the CLI  """
         if action == 'list':
