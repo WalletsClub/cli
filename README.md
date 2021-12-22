@@ -61,4 +61,4 @@ Got feedback for us? Please don't hesitate to tell us on [feedback](https://gith
 ## License
 Copyright (c) WalletsNet. All rights reserved.
 
-Licensed under the [Apache License 2.0 license](blob/master/LICENSE).
+Licensed under the [Apache License 2.0 license](https://github.com/WalletsClub/cli/blob/master/LICENSE).
