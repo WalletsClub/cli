@@ -2,7 +2,6 @@ Authlib==0.15.5
 certifi==2021.10.8
 cffi==1.15.0
 charset-normalizer==2.0.9
--e git+ssh://git@code.aliyun.com/wnet/cli.git@e30fc789ccb82d822d994d8326a3fe68a6082710#egg=cli
 click==8.0.3
 cryptography==36.0.1
 emoji==1.6.1
