@@ -4,7 +4,6 @@ The WalletsNet CLI helps you connect to WalletsNet.
 
 **With the CLI, you can:**
 
-- Securely test webhooks without relying on 3rd party software
 - Trigger webhook events or resend events for easy testing
 - Tail your API request logs in real-time
 - Build your first credit transfer transaction easy.
@@ -35,7 +34,7 @@ walletsnet help
 
 ## Commands
 
-The Stripe CLI supports a broad range of commands. Below is some of the most used ones:
+The WalletsNet CLI supports a broad range of commands. Below is some of the most used ones:
 - listen
   - Communicate with WalletsNet on your local machine, do not use it in production deployment
 - examples
@@ -60,6 +59,6 @@ Got feedback for us? Please don't hesitate to tell us on [feedback](https://gith
 
 
 ## License
-Copyright (c) Stripe. All rights reserved.
+Copyright (c) WalletsNet. All rights reserved.
 
 Licensed under the [Apache License 2.0 license](blob/master/LICENSE).
